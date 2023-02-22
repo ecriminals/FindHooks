@@ -1,5 +1,7 @@
 # FindHooks
 ### Scrapes valid Discord webhooks from GitHub.
 
-# Development
-unfinished.
+# Required
+* A GitHub Session (cookie)
+* A GitHub Octo (cookie)
+* A GitHub User Session (cookie)
