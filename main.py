@@ -55,8 +55,8 @@ class FindHook:
 
     def _verify_hook(this):
         while True:
-            prox = random.choice(open("./data/proxies.txt", "r").readlines()).strip()
-            uri = random.choice(open("./data/urls.txt", "r").readlines())
+            prox = random.choice(open("./data/proxies.txt", "r").read().splitlines()).strip()
+            uri = random.choice(open("./data/urls.txt", "r").read().splitlines())
             ii = this.session.get(
                 uri,
                 cookies={
@@ -71,7 +71,7 @@ class FindHook:
                 req = this.session.get(
                   x, 
                   proxies={
-                    "https": f"http://{random.choice(prox)}"
+                    "http": f"https://{random.choice(prox)}"
                   }, 
                   timeout=10
                 ).status_code
@@ -99,6 +99,7 @@ class FindHook:
 
 if __name__ == "__main__":
     menu = input("[1] Check Webhooks\n[2] Scrape URLs\n-> ")
+    os.system("clear")  
     if menu == "1":
         FindHook()._verify_hook()
     elif menu == "2":
